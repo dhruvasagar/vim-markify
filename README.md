@@ -6,6 +6,9 @@ quickfix lists.
 
 ## Change Log
 
+### Version 1.1.1
+* Fixed BalloonExpr (#1)
+
 ### Version 1.1
 * Added feature for echoing of message for line under cursor. (borrowed from
   Syntastic). This can be enabled / disabled using the

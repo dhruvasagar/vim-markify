@@ -1,7 +1,7 @@
-*markify.txt*			lines in |quickfix| windows using signs. v1.1
+*markify*				Mark lines in |quickfix| using signs.  v1.1.1
 ===============================================================================
 		Markify : Use Signs to Mark Errors / Warnings / Matches
-				Version 1.1
+				Version 1.1.1
 
 		Author: Dhruva Sagar <http://dhruvasagar.com>
 		License: MIT License <http://opensource.org/licenses/MIT/>

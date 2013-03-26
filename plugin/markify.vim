@@ -8,7 +8,7 @@
 " Author:        Dhruva Sagar <http://dhruvasagar.com/>
 " License:       Vim License
 " Website:       http://github.com/dhruvasagar/vim-markify
-" Version:       1.1
+" Version:       1.1.1
 "
 " Copyright Notice:
 "                Permission is hereby granted to use and distribute this code,
@@ -82,7 +82,7 @@ execute 'sign define MarkifyInfo text=' . g:markify_info_text .
       \ ' texthl=' . g:markify_info_texthl
 " }}}1
 
-function! s:MarkifyBalloonExpr() " {{{1
+function! MarkifyBalloonExpr() " {{{1
   for item in getqflist()
     if item.bufnr ==# v:beval_bufnr && item.lnum ==# v:beval_lnum
       return item.text
@@ -152,7 +152,7 @@ function! s:Markify()
 
   if has('balloon_eval')
     let old_balloonexpr = &balloonexpr
-    set ballooneval balloonexpr=s:MarkifyBalloonExpr()
+    set ballooneval balloonexpr=MarkifyBalloonExpr()
   endif
 
   call s:PlaceSigns(items)
