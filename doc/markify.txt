@@ -1,0 +1,143 @@
+*markify.txt*			lines in |quickfix| windows using signs. v1.0
+===============================================================================
+		Markify : Use Signs to Mark Errors / Warnings / Matches
+				Version 1.0
+
+		Author: Dhruva Sagar <http://dhruvasagar.com>
+		License: MIT License <http://opensource.org/licenses/MIT/>
+===============================================================================
+CONTENTS						*markify-contents*
+
+	1. Introduction ............|markify-intro|
+	2. Options .................|markify-options|
+	3. Mappings ................|markify-mappings|
+	4. Commands ................|markify-commands|
+	5. Contributing ............|markify-contributing|
+
+===============================================================================
+INTRODUCTION						*markify-intro*
+
+Markify is a simple, lightweight plugin that marks lines in buffers using
+signs to indicate quickfix or location list entries. This identifies and uses
+appropriate signs for errors, warnings or other informational messages. Works
+for  :make, :lmake, :grep, :lgrep, :grepadd, :lgrepadd, :vimgrep, :lvimgrep,
+     :vimgrepadd, :lvimgrepadd, :cscope, :helpgrep, :lhelpgrep
+
+===============================================================================
+OPTIONS							*markify-options*
+
+Overview :
+	|markify-options-error-text| ...... Define text for error sign
+	|markify-options-error-texthl| .... Define texthl for error sign
+	|markify-options-warning-text| .... Define text for error sign
+	|markify-options-warning-texthl| .. Define texthl for error sign
+	|markify-options-info-text| ....... Define text for error sign
+	|markify-options-info-texthl| ..... Define texthl for error sign
+	|markify-options-autocmd| ......... Flag for enabling autocmd
+	|markify-options-map| ............. Define mapping for |Markify|
+	|markify-options-clear-map| ....... Define mapping for |MarkifyClear|
+	|markify-options-toggle-map| ...... Define mapping for |MarkifyToggle|
+
+g:markify_error_text				*markify-options-error-text*
+	Use this to define the text to use for error signs. >
+		let g:markify_error_text = '>>'
+<
+
+g:markify_error_texthl				*markify-options-error-texthl*
+	Use this to define the texthl to use for error signs. >
+		let g:markify_error_texthl = 'Error'
+<
+
+g:markify_warning_text				*marking-options-warning-text*
+	Use this to define the this to define the text to use for warning
+	signs. >
+		let g:markify_warning_text = 'Todo'
+<
+
+g:markify_warning_texthl			*markify-options-warning-texthl*
+	Use this to define the texthl to use for error signs. >
+		let g:markify_warning_texthl = 'Error'
+<
+
+g:markify_info_text				*marking-options-info-text*
+	Use this to define the this to define the text to use for warning
+	signs. >
+		let g:markify_info_text = '>>'
+<
+
+g:markify_info_texthl				*markify-options-info-texthl*
+	Use this to define the texthl to use for error signs. >
+		let g:markify_info_texthl = 'Normal'
+<
+
+g:markify_autocmd				*markify-options-autocmd*
+	Use this to enable or disable the autocommand for markify. >
+		let g:markify_autocmd = 1
+<
+	NOTE if you set |markify-options-autocmd| to 0, then you will have to
+	manually call |Markify| or |MarkifyToggle| to see the signs indicating
+	the lists.
+
+g:markify_map					*markify-options-map*
+	Use this to define mapping to invoke |Markify|. >
+		let g:markify_map = '<Leader>mm'
+<
+
+g:markify_clear_map				*markify-options-clear-map*
+	Use this to define the mapping to invoke |MarkifyClear|. >
+		let g:markify_clear_map = '<Leader>mc'
+<
+
+g:markify_toggle_map				*markify-options-toggle-map*
+	Use this to define the mapping to invoke |MarkifyToggle|. >
+		let g:markify_toggle_map = '<Leader>M'
+<
+
+===============================================================================
+MAPPINGS						*markify-mappings*
+
+							*markify-map*
+<Leader>mm	Invoke |Markify|.
+
+							*markify-clear-map*
+<Leader>mc	Invoke |MarkifyClear|.
+
+							*markify-toggle-map*
+<Leader>M	Invoke |MarkifyToggle|.
+
+===============================================================================
+COMMANDS						*markify-commands*
+
+							*:Markify*
+							*markify-:Markify*
+:Markify
+	Process the current location list or quickfix list (location lists
+	have precedence over quickfix lists) and mark the corresponding lines
+	in the corresponding buffers with appropriate signs for errors,
+	warnings or info.
+
+							*:MarkifyClear*
+							*markify-:MarkifyClear*
+:MarkifyClear
+	Clear the signs set by |Markify|.
+
+							*:MarkifyToggle*
+							*markify-:MarkifyToggle*
+:MarkifyToggle
+	Toggle between |Markify| and |MarkifyClear| alternatively.
+
+===============================================================================
+CONTRIBUTING						*markify-contributing*
+
+1. Reporting Bugs:
+	Use Github Issue Tracker
+	(https://github.com/dhruvasagar/vim-markify/issues) for filing bugs.
+
+2. Contributing to Code
+	If you want to take a stab at it, by all means, send me a pull request
+	on Github (https://github.com/dhruvasagar/vim-markify) or get in touch
+	with me directly via e-mail at dhruva [dot] sagar [at] gmail.com.
+
+===============================================================================
+
+ vim:tw=78 ts=8 ft=help norl
