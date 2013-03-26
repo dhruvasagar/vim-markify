@@ -7,7 +7,8 @@ quickfix lists.
 ## Change Log
 
 ### Version 1.1.1
-* Fixed BalloonExpr (#1)
+* Fixed BalloonExpr (<a
+  href='https://github.com/dhruvasagar/vim-markify/issues/1'>#1</a>)
 
 ### Version 1.1
 * Added feature for echoing of message for line under cursor. (borrowed from
