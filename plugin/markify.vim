@@ -195,4 +195,4 @@ unlet s:save_cpo
 " }}}1
 
 " ModeLine {{{
-" vimsfdl=0 fdm=marker
+" vim:fdl=0 fdm=marker
