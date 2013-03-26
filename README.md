@@ -6,6 +6,11 @@ quickfix lists.
 
 ## Change Log
 
+### Version 1.1
+* Added feature for echoing of message for line under cursor. (borrowed from
+  Syntastic). This can be enabled / disabled using the
+  `g:markify_echo_current_message` option.
+
 ### Version 1.0
 * Initial release, core functionality works.
 
@@ -27,19 +32,21 @@ $ git submodule add git@github.com:dhruvasagar/vim-markify.git bundle/markify
    WINDOWS and restart VIM
 
 ### Usage
-   When you have g:markify_autocmd = 1 (default), then markify is run on
-   QuickFixCmdPost event and marks the lines with signs automatically.
+   When you have `g:markify_autocmd = 1` (default), then markify is run on
+   `QuickFixCmdPost` event and marks the lines with signs automatically.
 
    Markify can distinguish between errors, warnings &amp; info messages and
    uses different signs for each. By default it uses '>>' to display in the
    signcolumn, however this can be changed.
 
    If you don't wish to have markify work all the time, you can set
-   g:markify_autocmd = 0 in your $VIMRC. You can call :Markify to process the
-   current location list or quickfix list (location lists are given
-   preference) and add the signs. You can call :MarkifyClear to clear the
-   signs set by Markify and you can also use :MarkifyToggle to toggle the
-   same.
+   `g:markify_autocmd = 0` in your $VIMRC. You can call `:Markify` to process
+   the current location list or quickfix list ( location lists are given
+   preference ) and add the signs. You can call `:MarkifyClear` to clear
+   the signs set by Markify and you can also use `:MarkifyToggle` to toggle
+   the same.
+
+   Check `:h markify` for more details.
 
 ## Contributing
 

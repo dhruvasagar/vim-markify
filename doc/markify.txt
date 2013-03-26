@@ -1,7 +1,7 @@
-*markify.txt*			lines in |quickfix| windows using signs. v1.0
+*markify.txt*			lines in |quickfix| windows using signs. v1.1
 ===============================================================================
 		Markify : Use Signs to Mark Errors / Warnings / Matches
-				Version 1.0
+				Version 1.1
 
 		Author: Dhruva Sagar <http://dhruvasagar.com>
 		License: MIT License <http://opensource.org/licenses/MIT/>
@@ -27,70 +27,76 @@ for  :make, :lmake, :grep, :lgrep, :grepadd, :lgrepadd, :vimgrep, :lvimgrep,
 OPTIONS							*markify-options*
 
 Overview :
-	|markify-options-error-text| ...... Define text for error sign
-	|markify-options-error-texthl| .... Define texthl for error sign
-	|markify-options-warning-text| .... Define text for error sign
-	|markify-options-warning-texthl| .. Define texthl for error sign
-	|markify-options-info-text| ....... Define text for error sign
-	|markify-options-info-texthl| ..... Define texthl for error sign
-	|markify-options-autocmd| ......... Flag for enabling autocmd
-	|markify-options-map| ............. Define mapping for |Markify|
-	|markify-options-clear-map| ....... Define mapping for |MarkifyClear|
-	|markify-options-toggle-map| ...... Define mapping for |MarkifyToggle|
+	|markify-error-text| .............. Define text for error sign
+	|markify-error-texthl| ............ Define texthl for error sign
+	|markify-warning-text| ............ Define text for error sign
+	|markify-warning-texthl| .......... Define texthl for error sign
+	|markify-info-text| ............... Define text for error sign
+	|markify-info-texthl| ............. Define texthl for error sign
+	|markify-autocmd| ................. Flag for enabling autocmd
+	|markify-map| ..................... Define mapping for |Markify|
+	|markify-clear-map| ............... Define mapping for |MarkifyClear|
+	|markify-toggle-map| .............. Define mapping for |MarkifyToggle|
+	|markify-echo-current-message| .... Enable echoing of message
 
-g:markify_error_text				*markify-options-error-text*
+g:markify_error_text					*markify-error-text*
 	Use this to define the text to use for error signs. >
 		let g:markify_error_text = '>>'
 <
 
-g:markify_error_texthl				*markify-options-error-texthl*
+g:markify_error_texthl					*markify-error-texthl*
 	Use this to define the texthl to use for error signs. >
 		let g:markify_error_texthl = 'Error'
 <
 
-g:markify_warning_text				*marking-options-warning-text*
+g:markify_warning_text					*markify-warning-text*
 	Use this to define the this to define the text to use for warning
 	signs. >
 		let g:markify_warning_text = 'Todo'
 <
 
-g:markify_warning_texthl			*markify-options-warning-texthl*
+g:markify_warning_texthl				*markify-warning-texthl*
 	Use this to define the texthl to use for error signs. >
 		let g:markify_warning_texthl = 'Error'
 <
 
-g:markify_info_text				*marking-options-info-text*
+g:markify_info_text					*markify-info-text*
 	Use this to define the this to define the text to use for warning
 	signs. >
 		let g:markify_info_text = '>>'
 <
 
-g:markify_info_texthl				*markify-options-info-texthl*
+g:markify_info_texthl					*markify-info-texthl*
 	Use this to define the texthl to use for error signs. >
 		let g:markify_info_texthl = 'Normal'
 <
 
-g:markify_autocmd				*markify-options-autocmd*
+g:markify_autocmd					*markify-autocmd*
 	Use this to enable or disable the autocommand for markify. >
 		let g:markify_autocmd = 1
 <
-	NOTE if you set |markify-options-autocmd| to 0, then you will have to
+	NOTE if you set |markify-autocmd| to 0, then you will have to
 	manually call |Markify| or |MarkifyToggle| to see the signs indicating
 	the lists.
 
-g:markify_map					*markify-options-map*
+g:markify_map						*markify-map*
 	Use this to define mapping to invoke |Markify|. >
 		let g:markify_map = '<Leader>mm'
 <
 
-g:markify_clear_map				*markify-options-clear-map*
+g:markify_clear_map					*markify-clear-map*
 	Use this to define the mapping to invoke |MarkifyClear|. >
 		let g:markify_clear_map = '<Leader>mc'
 <
 
-g:markify_toggle_map				*markify-options-toggle-map*
+g:markify_toggle_map					*markify-toggle-map*
 	Use this to define the mapping to invoke |MarkifyToggle|. >
 		let g:markify_toggle_map = '<Leader>M'
+<
+
+g:markify_echo_current_message			*markify-echo-current-message*
+	Use this to enable / disable echoing of message for current line. >
+		let g:markify_echo_current_message = 1
 <
 
 ===============================================================================

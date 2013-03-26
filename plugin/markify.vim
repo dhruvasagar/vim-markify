@@ -8,7 +8,7 @@
 " Author:        Dhruva Sagar <http://dhruvasagar.com/>
 " License:       Vim License
 " Website:       http://github.com/dhruvasagar/vim-markify
-" Version:       1.0
+" Version:       1.1
 "
 " Copyright Notice:
 "                Permission is hereby granted to use and distribute this code,
@@ -56,11 +56,16 @@ call s:SetGlobalOptDefault('markify_autocmd', 1)
 call s:SetGlobalOptDefault('markify_map', '<Leader>mm')
 call s:SetGlobalOptDefault('markify_clear_map', '<Leader>mc')
 call s:SetGlobalOptDefault('markify_toggle_map', '<Leader>M')
+call s:SetGlobalOptDefault('markify_echo_current_message', 1)
 " }}}1
 
 if g:markify_autocmd "{{{1
   augroup Markify " {{{2
     au!
+
+    if g:markify_echo_current_message
+      autocmd CursorMoved * call s:EchoCurrentMessage()
+    endif
 
     autocmd QuickFixCmdPost * call s:MarkifyClear() | call s:Markify()
   augroup END
@@ -92,7 +97,7 @@ function! s:PlaceSigns(items) " {{{1
     if item.bufnr == 0 || item.lnum == 0 | continue | endif
     let id = item.bufnr . item.lnum
     if has_key(s:sign_ids, id) | return | endif
-    let s:sign_ids[id] = 1
+    let s:sign_ids[id] = item
 
     let sign_name = ''
     if item.type ==? 'E'
@@ -109,8 +114,33 @@ function! s:PlaceSigns(items) " {{{1
 endfunction
 " }}}1
 
+" function! s:EchoMessage(message) - Taken from Syntastic {{{1
+function! s:EchoMessage(message)
+  let [old_ruler, old_showcmd] = [&ruler, &showcmd]
+
+  let message = substitute(a:message, "\t", repeat(' ', &tabstop), 'g')
+  let message = strpart(message, 0, winwidth(0)-1)
+  let message = substitute(message, "\n", '', 'g')
+
+  set noruler noshowcmd
+  redraw
+
+  echo message
+
+  let [&ruler, &showcmd] = [old_ruler, old_showcmd]
+endfunction
+" }}}1
+
+function! s:EchoCurrentMessage() "{{{1
+  let id = bufnr('%') . line('.')
+  if !has_key(s:sign_ids, id) | return | endif
+  call s:EchoMessage(s:sign_ids[id].text)
+endfunction
+" }}}1
+
+" function! s:Markify() {{{1
 let [s:markified, s:sign_ids] = [0, {}]
-function! s:Markify() " {{{1
+function! s:Markify()
   if s:markified | return | endif
 
   let [items, loclist, qflist] = [[], getloclist(0), getqflist()]
@@ -149,7 +179,7 @@ function! s:MarkifyToggle() "{{{1
 endfunction
 " }}}1
 
-" Define Commands & Mappings {{{1
+" Commands & Mappings {{{1
 command! -nargs=0 Markify call s:Markify()
 command! -nargs=0 MarkifyClear call s:MarkifyClear()
 command! -nargs=0 MarkifyToggle call s:MarkifyToggle()
