@@ -76,7 +76,7 @@ end
 " Define Signs {{{1
 execute 'sign define MarkifyError text=' . g:markify_error_text .
       \ ' texthl=' . g:markify_error_texthl
-execute 'sign define MarkifyWarming text=' . g:markify_warning_text .
+execute 'sign define MarkifyWarning text=' . g:markify_warning_text .
       \ ' texthl=' . g:markify_warning_texthl
 execute 'sign define MarkifyInfo text=' . g:markify_info_text .
       \ ' texthl=' . g:markify_info_texthl
