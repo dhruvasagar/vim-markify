@@ -63,3 +63,11 @@ $ git submodule add git@github.com:dhruvasagar/vim-markify.git bundle/markify
    - Commit your changes and give your commit message some love.
    - Push to your fork on github.
    - Open a Pull Request.
+
+## Credits
+   I would like to give a shout out to Scroolose for his awesome plugin <a
+   href="https://github.com/scrooloose/syntastic">Syntastic</a> which gave me
+   the inspiration and know-how to work with signs.
+
+   I would also like to thank Tim Pope for sharing his configurations which
+   inspired me to build this plugin.
