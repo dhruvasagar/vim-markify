@@ -102,13 +102,13 @@ g:markify_echo_current_message			*markify-echo-current-message*
 ===============================================================================
 MAPPINGS						*markify-mappings*
 
-							*markify-map*
+							*markify-<Leader>mm*
 <Leader>mm	Invoke |Markify|.
 
-							*markify-clear-map*
+							*markify-<Leader>mc*
 <Leader>mc	Invoke |MarkifyClear|.
 
-							*markify-toggle-map*
+							*markify-<Leader>M*
 <Leader>M	Invoke |MarkifyToggle|.
 
 ===============================================================================
