@@ -27,10 +27,11 @@ There are 2 ways to do this
    href="https://github.com/tpope/vim-pathogen">pathogen.vim</a> and then
    adding a git submodule for your plugin:
 
-   ```sh
+```sh
 $ cd ~/.vim
 $ git submodule add git@github.com:dhruvasagar/vim-markify.git bundle/markify
-   ```
+```
+
 2. Copy plugin/todo-mode.vim, doc/todo-mode.txt to respective ~/.vim/plugin
    and ~/.vim/doc under UNIX or vimfiles/plugin/ and vimfiles/doc under
    WINDOWS and restart VIM
