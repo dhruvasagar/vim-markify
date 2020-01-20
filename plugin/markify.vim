@@ -96,7 +96,7 @@ function! s:PlaceSigns(items) " {{{1
   for item in a:items
     if item.bufnr == 0 || item.lnum == 0 | continue | endif
     let id = item.bufnr . item.lnum
-    if has_key(s:sign_ids, id) | return | endif
+    if has_key(s:sign_ids, id) | continue | endif
     let s:sign_ids[id] = item
 
     let sign_name = ''
