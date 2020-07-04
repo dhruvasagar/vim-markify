@@ -48,8 +48,10 @@ endfunction
 " Set Global Default Options {{{1
 call s:SetGlobalOptDefault('markify_error_text', '>>')
 call s:SetGlobalOptDefault('markify_error_texthl', 'Error')
+call s:SetGlobalOptDefault('markify_error_pattern', '^ *error:')
 call s:SetGlobalOptDefault('markify_warning_text', '>>')
 call s:SetGlobalOptDefault('markify_warning_texthl', 'Todo')
+call s:SetGlobalOptDefault('markify_warning_pattern', '^ *warning:')
 call s:SetGlobalOptDefault('markify_info_text', '>>')
 call s:SetGlobalOptDefault('markify_info_texthl', 'Normal')
 call s:SetGlobalOptDefault('markify_autocmd', 1)
@@ -100,9 +102,9 @@ function! s:PlaceSigns(items) " {{{1
     let s:sign_ids[id] = item
 
     let sign_name = ''
-    if item.type ==? 'E'
+    if item.type ==? 'E' || item.text =~# g:markify_error_pattern
       let sign_name = 'MarkifyError'
-    elseif item.type ==? 'W'
+    elseif item.type ==? 'W' || item.text =~# g:markify_warning_pattern
       let sign_name = 'MarkifyWarning'
     else
       let sign_name = 'MarkifyInfo'

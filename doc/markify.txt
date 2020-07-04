@@ -29,8 +29,10 @@ OPTIONS							*markify-options*
 Overview :
 	|markify-error-text| .............. Define text for error sign
 	|markify-error-texthl| ............ Define texthl for error sign
+	|markify-error-pattern| ........... Define pattern identifying an error
 	|markify-warning-text| ............ Define text for error sign
 	|markify-warning-texthl| .......... Define texthl for error sign
+	|markify-warning-pattern| ......... Define pattern identifying a warning
 	|markify-info-text| ............... Define text for error sign
 	|markify-info-texthl| ............. Define texthl for error sign
 	|markify-autocmd| ................. Flag for enabling autocmd
@@ -49,6 +51,11 @@ g:markify_error_texthl					*markify-error-texthl*
 		let g:markify_error_texthl = 'Error'
 <
 
+g:markify_error_pattern					*markify-error-pattern*
+	Use this to define a pattern that identifies text as an error text.
+		let g:markify_error_pattern = '^ *error:'
+<
+
 g:markify_warning_text					*markify-warning-text*
 	Use this to define the this to define the text to use for warning
 	signs. >
@@ -58,6 +65,11 @@ g:markify_warning_text					*markify-warning-text*
 g:markify_warning_texthl				*markify-warning-texthl*
 	Use this to define the texthl to use for error signs. >
 		let g:markify_warning_texthl = 'Error'
+<
+
+g:markify_warning_pattern				*markify-warning-pattern*
+	Use this to define a pattern that identifies text as a warning text.
+		let g:markify_warning_pattern = '^ *warning:'
 <
 
 g:markify_info_text					*markify-info-text*
