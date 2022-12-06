@@ -96,6 +96,7 @@ endfunction
 
 let g:markify_count = {'total': 0, 'error': 0, 'warn': 0, 'info': 0}
 function! s:PlaceSigns(items) " {{{1
+  let l:markify_count = {}
   let l:markify_count.total = 0
   let l:markify_count.error = 0
   let l:markify_count.warn = 0
