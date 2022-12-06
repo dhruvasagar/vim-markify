@@ -104,14 +104,20 @@ function! s:PlaceSigns(items) " {{{1
     let sign_name = ''
     if item.type ==? 'E' || item.text =~# g:markify_error_pattern
       let sign_name = 'MarkifyError'
+      let sign_priority = 99
     elseif item.type ==? 'W' || item.text =~# g:markify_warning_pattern
       let sign_name = 'MarkifyWarning'
+      let sign_priority = 98
     else
       let sign_name = 'MarkifyInfo'
+      let sign_priority = 97
     endif
 
-    execute 'sign place ' . id . ' line=' . item.lnum . ' name=' . sign_name .
-          \ ' buffer=' .  item.bufnr
+    execute 'sign place ' . id
+          \ . ' priority=' . sign_priority
+          \ . ' line=' . item.lnum
+          \ . ' name=' . sign_name
+          \ . ' buffer=' .  item.bufnr
   endfor
 endfunction
 " }}}1
