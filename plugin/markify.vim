@@ -94,7 +94,14 @@ function! MarkifyBalloonExpr() " {{{1
 endfunction
 " }}}1
 
+let g:markify_count = {'total': 0, 'error': 0, 'warn': 0, 'info': 0}
 function! s:PlaceSigns(items) " {{{1
+  let l:markify_count = {}
+  let l:markify_count.total = 0
+  let l:markify_count.error = 0
+  let l:markify_count.warn = 0
+  let l:markify_count.info = 0
+
   for item in a:items
     if item.bufnr == 0 || item.lnum == 0 | continue | endif
     let id = item.bufnr . item.lnum
@@ -103,12 +110,18 @@ function! s:PlaceSigns(items) " {{{1
 
     let sign_name = ''
     if item.type ==? 'E' || item.text =~# g:markify_error_pattern
+      let l:markify_count.total = l:markify_count.total + 1
+      let l:markify_count.error = l:markify_count.error + 1
       let sign_name = 'MarkifyError'
       let sign_priority = 99
     elseif item.type ==? 'W' || item.text =~# g:markify_warning_pattern
+      let l:markify_count.total = l:markify_count.total + 1
+      let l:markify_count.warn = l:markify_count.warn + 1
       let sign_name = 'MarkifyWarning'
       let sign_priority = 98
     else
+      let l:markify_count.total = l:markify_count.total + 1
+      let l:markify_count.info = l:markify_count.info + 1
       let sign_name = 'MarkifyInfo'
       let sign_priority = 97
     endif
@@ -119,6 +132,12 @@ function! s:PlaceSigns(items) " {{{1
           \ . ' name=' . sign_name
           \ . ' buffer=' .  item.bufnr
   endfor
+
+  let g:markify_count.total = l:markify_count.total
+  let g:markify_count.error = l:markify_count.error
+  let g:markify_count.warn = l:markify_count.warn
+  let g:markify_count.info = l:markify_count.info
+
 endfunction
 " }}}1
 
